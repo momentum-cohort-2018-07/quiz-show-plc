@@ -1,0 +1,41 @@
+
+1. Login and Registration
+  a. Login
+      request: Post (Username, Password)
+      receives: user token to be added to Local Storage for Auth later, receive info on User or Admin
+  b. Registration
+      request: Post (Username, Password)
+      receives: nothing, direct the user to login
+
+2.User Story
+  a. view all quizzes
+      request: Get, auth: token
+      receive: all published quizzes that haven't been taken
+        i.Open Quiz
+          request: Get, auth: token
+          receive: questions for that quiz, the possible choices for each question
+        ii.Submit Quiz
+          request: Post, auth: token, sending: answers, score
+          receive: OK
+          note: users will be thanked for their participation and directed to view scores
+  b. view scores
+      request: Get, Auth: token
+      receive: all quizzes that have been taken by this user, their scores, their questions + answers
+        i. View individual quiz results
+          request: maybe
+          receive: maybe
+          note: they can view each question, their answer, and if they were right
+
+3. Admin Story
+  a. they somehow have access to User view
+      note: view scores includes all users scores by quiz
+  b. Quiz Manager
+      Note: need endpoints for question and answer manipulation
+      request: Get, auth: token
+      receive: their authored quizzes
+        i. Saved Quiz
+          request: put, auth: token
+          receive: OK
+        ii. New Quiz
+          request: post, auth: token
+          receive: OK
