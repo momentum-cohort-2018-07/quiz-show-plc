@@ -1,8 +1,7 @@
 class AnswersController < ApplicationController
- 
+
   # before_action :set_question,  only: [:index, :create, :show, :update, :destroy]
   # before_action :set_answer, only: [:show, :update, :destroy]
- 
   def index
     @answers = @question.answers
     render json: @question.answers
@@ -54,6 +53,6 @@ class AnswersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def answer_params
-      params.require(:answer).permit(:user, :text)
+      params.require(:answer).permit(:text)
     end
 end
