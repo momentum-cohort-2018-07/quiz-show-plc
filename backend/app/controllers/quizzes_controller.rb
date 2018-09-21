@@ -14,6 +14,11 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def show
+    @quiz = Quiz.find(params[:id])
+    render json: @quiz
+  end
+
   def edit 
     @quiz = Quiz.find(params[:id])
   end
