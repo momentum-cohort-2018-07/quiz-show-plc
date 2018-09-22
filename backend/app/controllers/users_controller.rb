@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :verify_authentication
+  #before_action :set_user, only: [:show, :update, :destroy]
 
   def index
     @users = User.all
@@ -10,7 +11,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     render json: @user 
   end
-
 
   def create
     @user = User.new(users_params)
