@@ -7,15 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-# User.create!(
-#   username: 'admin',
-#   password: 'admin',
-#   admin: true
-# )
+User.create!(
+  username: 'admin',
+  email: 'admin@admin.com',
+  password: 'admin1',
+  admin: true
+)
 
 User.create!(
   username: 'user',
-  password: 'user'
+  email: 'user@user.com',
+  password: 'user01'
 )
 
 CSV.foreach('db/quizzes.csv', headers: true) do |row|
