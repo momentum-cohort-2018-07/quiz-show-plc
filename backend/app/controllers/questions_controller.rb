@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_action :set_question,  only: [:create, :show, :update, :destroy]
+
   def index
     @question = Question.all
     render json: @question
@@ -35,10 +37,12 @@ class QuestionsController < ApplicationController
 
   private
 
+  def set_question
+    @question = Question.find(params["quiz_id"])
+  end
+
   def question_params
     params.require(:question).permit(:text, :quiz_id)
   end
 
 end
-
-
