@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authentication
+  skip_before_action :verify_authentication 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
