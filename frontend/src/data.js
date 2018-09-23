@@ -1,7 +1,7 @@
 import request from 'superagent'
 
 let userToken
-const apiDomain = 'https://blooming-savannah-88933.herokuapp.com'
+const apiDomain = 'http://localhost:3001'
 // back end hosting link: https://blooming-savannah-88933.herokuapp.com
 
 const data = {
@@ -53,8 +53,7 @@ const data = {
       })
   },
   getQuizzes: () => {
-    return request.get(`${apiDomain}/api/stacks`)
-      .set('Authorization', `Bearer ${userToken}`)
+    return request.get(`${apiDomain}/quizzes`)
       .then(res => res.body.Quizzes)
   }
 }

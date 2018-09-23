@@ -14,6 +14,16 @@ class AllQuizzes extends Component {
     }
   }
 
+  componentDidMount () {
+    this.loadQuizzes()
+  }
+
+  loadQuizzes () {
+    data.getQuizzes().then(quizzes => this.setState({
+      quizzes: quizzes
+    }))
+  }
+
   render () {
     const quizzes = this.state.quizzes
     return (
@@ -22,7 +32,6 @@ class AllQuizzes extends Component {
           <li key={idx}>
             <h4>Quiz Title: {quiz.quizTitle}</h4>
           </li>
-          // data.getQuizzes
         )}
       </ul>
 
