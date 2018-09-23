@@ -22,6 +22,16 @@ class QuizzesController < ApplicationController
     render json: @quiz
   end
 
+  def create
+    @quiz = Quiz.new(quiz_params)
+
+    if @quiz.save
+      render json: @quiz, status: :created, location: @quiz
+    else
+      render json: @quiz.errors, status: :unprocessable_entity
+    end
+  end
+
   # def create
   #   if !logged_in?
   #     render json: {error: "You must sign in to create a quiz."}, status: :unauthorized
@@ -78,6 +88,13 @@ class QuizzesController < ApplicationController
   #     end
   #   end
   # end
+
+  # This destroy code works but I think it allows any logged-in user
+  # to delete a quiz, not just the admin.
+  def destroy
+    @quiz = Quiz.find(params[:id])
+    @quiz.destroy
+  end
 
   # def destroy
   #   if current_user.id != @user.id
