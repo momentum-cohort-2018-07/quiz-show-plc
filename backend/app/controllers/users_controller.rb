@@ -38,12 +38,13 @@ class UsersController < ApplicationController
     end
   end
 
+  # This destroy code works but I don't think it allows any logged-in user
+  # to delete another user.
   def destroy
-    # @user.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-    #   format.json { render head :no_content }
-    # end
+    @user = User.find(params[:id])
+    @user.destroy
+   
+    redirect_to user_path(@user)
   end
 
   def verify_authentication
