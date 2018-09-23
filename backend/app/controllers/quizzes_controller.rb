@@ -37,9 +37,18 @@ class QuizzesController < ApplicationController
   #   end
   # end
 
+  def update
+    @quiz = Quiz.find(params[:id])  
+    if @quiz.update(quiz_params)
+      render json: @quiz, status: :created, location: @quiz
+    else
+      render json: @quiz.errors, status: :unprocessable_entity
+    end
+  end
+
   # def update
   #   if current_user.id != @user.id
-  #     render json: {error: "Must be the owner to update this quiz"}, status: :unauthorized
+  #     render json: {error: "You umst be the administrator to update this quiz."}, status: :unauthorized
   #   else
   #     if @quiz.update(quiz_params)
   #       render :show, status: :updated, location: api_quiz_url(@quiz)
