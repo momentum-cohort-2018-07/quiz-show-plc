@@ -1,4 +1,8 @@
 class QuizzesController < ApplicationController
+  skip_before_action :verify_authentication, only: [:index]
+  before_action :set_quiz, only: [:show, :update, :destroy]
+  
+  
   def index
     @quiz = Quiz.all
     render json: @quiz
@@ -40,7 +44,7 @@ class QuizzesController < ApplicationController
 
   private
 
-  def question_params
-    params.require(:question).permit(:text)
+  def quiz_params
+    params.require(:quiz).permit(:title, :published)
   end
 end
