@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # skip_before_action :verify_authentication
+  skip_before_action :verify_authentication
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -38,12 +38,15 @@ class UsersController < ApplicationController
     end
   end
 
+
+  # This destroy code works but I think it allows any logged-in user
+  # to delete another user, not just the admin.
+
   def destroy
-    # @user.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-    #   format.json { render head :no_content }
-    # end
+    @user = User.find(params[:id])
+    @user.destroy
+   
+   # redirect_to user_path(@user)
   end
 
   def verify_authentication

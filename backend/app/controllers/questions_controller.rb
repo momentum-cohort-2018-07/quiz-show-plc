@@ -23,7 +23,14 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  # This destroy code works but I think it allows any logged-in user
+  # to delete a question, not just the admin.
+
   def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+   
+  #  redirect_to question_path(@question)
   end
 
   private
