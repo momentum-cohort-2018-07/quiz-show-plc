@@ -38,13 +38,15 @@ class UsersController < ApplicationController
     end
   end
 
-  # This destroy code works but I don't think it allows any logged-in user
-  # to delete another user.
+
+  # This destroy code works but I think it allows any logged-in user
+  # to delete another user, not just the admin.
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
    
-    redirect_to user_path(@user)
+   # redirect_to user_path(@user)
   end
 
   def verify_authentication
