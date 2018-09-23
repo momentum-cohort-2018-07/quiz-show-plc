@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   # get 'answers/destroy'
 
   resources :quizzes do 
-    resources :questions
+    resources :questions do
+      resources :answers
+    end
   end
 
-  resources :answers
+  # resources :answers
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
