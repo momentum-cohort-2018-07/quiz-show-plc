@@ -1,11 +1,11 @@
-class API::SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
   skip_before_action :verify_authentication
 
   def create
     user = User.find_by_username(params[:username])
 
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id]
+      session[:user_id] = user.id
       redirect_to root_path
     else
       flash[:error_mesage] = "Something went wrong! Please try again"

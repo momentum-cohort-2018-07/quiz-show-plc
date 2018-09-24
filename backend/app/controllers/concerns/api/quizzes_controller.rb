@@ -1,4 +1,4 @@
-class API::QuizzesController < ApplicationController
+class Api::QuizzesController < ApplicationController
   skip_before_action :verify_authentication, only: [:index]
   before_action :set_quiz, only: [:show, :update, :destroy]
   
