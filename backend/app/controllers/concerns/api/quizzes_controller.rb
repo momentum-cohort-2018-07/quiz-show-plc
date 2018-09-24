@@ -1,10 +1,10 @@
 class Api::QuizzesController < ApplicationController
-  skip_before_action :verify_authentication, only: [:index]
+  skip_before_action :verify_authentication, only: [:index, :show]
   before_action :set_quiz, only: [:show, :update, :destroy]
   
   def index
     @quizzes = Quiz.all
-    render json: @quiz
+    render json: @quizzes
   end
 
   def published_quizzes
@@ -19,7 +19,7 @@ class Api::QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.find(params[:id])
-    render json: @quiz
+    @questions = @quiz.questions.includes(:answers)
   end
 
   def create

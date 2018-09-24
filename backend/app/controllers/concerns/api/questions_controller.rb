@@ -1,8 +1,9 @@
 class Api::QuestionsController < ApplicationController
+  skip_before_action :verify_authentication, only: [:index]
   before_action :set_question,  only: [:create, :show, :update, :destroy]
 
   def index
-    @question = Question.all
+    @question = Question.find(params[:quiz_id])
     render json: @question
   end
 

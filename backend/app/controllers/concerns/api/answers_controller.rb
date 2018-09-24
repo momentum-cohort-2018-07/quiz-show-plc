@@ -1,13 +1,15 @@
 class Api::AnswersController < ApplicationController
+  skip_before_action :verify_authentication
 
-  # before_action :set_question,  only: [:index, :create, :show, :update, :destroy]
-  # before_action :set_answer, only: [:show, :update, :destroy]
   def index
-    @answers = @question.answers
-    render json: @question.answers
+    @answers = Answer.all
+    @answers = @answer.questions.includes(:answers)
+    render json: @answer
   end
 
   def show
+    @answer = Answer.find(params[:id])
+    @answers = @answer.questions.includes(:answers)
     render json: @answers
   end
 
@@ -54,6 +56,6 @@ class Api::AnswersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def answer_params
-      params.require(:answer).permit(:text, :question_id, :correct, :quiz_id)
+      params.require(:answer).permit(:text, :question_id, :correct)
     end
 end
