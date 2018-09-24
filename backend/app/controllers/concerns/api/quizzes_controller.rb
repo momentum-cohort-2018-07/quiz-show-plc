@@ -4,7 +4,7 @@ class Api::QuizzesController < ApplicationController
   
   def index
     @quizzes = Quiz.all
-    render json: @quizzes
+    render json: @quiz
   end
 
   def published_quizzes
