@@ -1,0 +1,11 @@
+Current Components:
+ - App
+    - renders everything
+ - AllQuizzes
+    - maintains state with list of quizzes
+ - RegisterForm
+    - maintains local state with username, password, and confirmation
+ - LoginForm
+    - maintains local state with username and password
+ - data
+    - makes API Calls in one place
