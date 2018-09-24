@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   
   root 'quizzes#index'
+
+
   resources :users
 
   # get 'answers/index'
   # get 'answers/create'
   # get 'answers/udpate'
   # get 'answers/destroy'
+
 
   resources :quizzes do 
     resources :questions
