@@ -17,7 +17,8 @@ User.create!(
 User.create!(
   username: 'user',
   email: 'user@user.com',
-  password: 'user01'
+  password: 'user01', 
+  admin: false
 )
 
 CSV.foreach('db/quizzes.csv', headers: true) do |row|
@@ -34,4 +35,4 @@ end
 
 ActiveRecord::Base.connection.tables.each do |t| 
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
-end
+endq

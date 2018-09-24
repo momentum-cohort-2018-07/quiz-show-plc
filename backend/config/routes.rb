@@ -1,19 +1,17 @@
 Rails.application.routes.draw do
+  namespace :api do
+    resource :session, only: [:new, :create, :destroy]
   
-  root 'quizzes#index'
-  resources :users
+    root 'quizzes#index'
+    resources :users
 
-  # get 'answers/index'
-  # get 'answers/create'
-  # get 'answers/udpate'
-  # get 'answers/destroy'
-
-  resources :quizzes do 
-    resources :questions do
-      resources :answers
-    end
+  
+    resources :users
+    resources :quizzes do 
+      resources :questions do
+        resources :answers
+      end
   end
-
-  # resources :answers
+end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
