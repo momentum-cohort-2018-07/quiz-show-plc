@@ -1,10 +1,10 @@
-class QuizzesController < ApplicationController
+class Api::QuizzesController < ApplicationController
   skip_before_action :verify_authentication, only: [:index]
   before_action :set_quiz, only: [:show, :update, :destroy]
   
   def index
     @quizzes = Quiz.all
-    render json: @quizzes
+    render json: @quiz
   end
 
   def published_quizzes
@@ -12,10 +12,10 @@ class QuizzesController < ApplicationController
     render :index, location: api_quizzes_url
   end
 
-  # def unpublished_quizzes
-  #   @quizzes = Quiz.where({published: false, user_id: params[:user_id]})
-  #   render :index, location: api_quizzes_url
-  # end
+  def unpublished_quizzes
+    @quizzes = Quiz.where({published: false, user_id: params[:user_id]})
+    render :index, location: api_quizzes_url
+  end
 
   def show
     @quiz = Quiz.find(params[:id])
@@ -58,7 +58,7 @@ class QuizzesController < ApplicationController
 
   # def update
   #   if current_user.id != @user.id
-  #     render json: {error: "You umst be the administrator to update this quiz."}, status: :unauthorized
+  #     render json: {error: "You must be the administrator to update this quiz."}, status: :unauthorized
   #   else
   #     if @quiz.update(quiz_params)
   #       render :show, status: :updated, location: api_quiz_url(@quiz)
