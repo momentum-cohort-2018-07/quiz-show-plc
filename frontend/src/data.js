@@ -30,7 +30,7 @@ const data = {
       })
   },
   register: (username, password) => {
-    return request.post(`${apiDomain}/api/users`)
+    return request.post(`${apiDomain}/users`)
       .send({ username, password })
       .then(res => res.body)
       .then(user => {
@@ -54,7 +54,7 @@ const data = {
   },
   getQuizzes: () => {
     return request.get(`${apiDomain}/quizzes`)
-      .then(res => res.body.Quizzes)
+      .then(res => res.body)
   }
 }
 

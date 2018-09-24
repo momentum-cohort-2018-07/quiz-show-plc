@@ -20,7 +20,7 @@ class App extends Component {
             <li>Status: Incomplete</li>
             <li>Responsibility: Both</li>
           </ul>
-          <li>API hosted on Heroku: <a href=' https://blooming-savannah-88933.herokuapp.com/'>blooming-savannah-88933.herokuapp.com/</a> </li>
+          <li>API hosted on Heroku: <a href='https://blooming-savannah-88933.herokuapp.com/'>blooming-savannah-88933.herokuapp.com/</a> </li>
           <ul>
             <li>Status: Initial Deployment Complete, Deployments continue as we update</li>
             <li>Responsibility: Back End</li>
@@ -56,7 +56,7 @@ class App extends Component {
           <ul>
             <li>Status: Incomplete</li>
             <li>Responsibility: Both</li>
-            <li>FE NOTE: AllQuizzes component currently maps through hard coded data, use data.getQuizzes(username, password) when API Calls are ready</li>
+            <li>FE NOTE: this now runs on a local dev rails server</li>
           </ul>
           <li>database with seed data</li>
           <ul>

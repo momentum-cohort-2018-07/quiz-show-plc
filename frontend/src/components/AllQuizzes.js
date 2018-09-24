@@ -19,9 +19,10 @@ class AllQuizzes extends Component {
   }
 
   loadQuizzes () {
-    data.getQuizzes().then(quizzes => this.setState({
-      quizzes: quizzes
-    }))
+    data.getQuizzes()
+      .then(quizzes => this.setState({
+        quizzes: quizzes
+      }))
   }
 
   render () {
@@ -30,7 +31,7 @@ class AllQuizzes extends Component {
       <ul className='AllQuizzes'>
         {quizzes.map((quiz, idx) =>
           <li key={idx}>
-            <h4>Quiz Title: {quiz.quizTitle}</h4>
+            <h4>Quiz Title: {quiz.title}</h4>
           </li>
         )}
       </ul>
