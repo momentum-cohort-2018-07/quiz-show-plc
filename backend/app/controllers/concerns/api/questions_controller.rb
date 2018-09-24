@@ -3,7 +3,7 @@ class Api::QuestionsController < ApplicationController
   before_action :set_question,  only: [:create, :show, :update, :destroy]
 
   def index
-    @question = Question.all
+    @question = Question.find(params[:quiz_id])
     render json: @question
   end
 
