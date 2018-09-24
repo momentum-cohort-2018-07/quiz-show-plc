@@ -32,10 +32,20 @@
   b. Quiz Manager
       Note: need endpoints for question and answer manipulation
       request: Get, auth: token
-      receive: their authored quizzes
-        i. Saved Quiz
-          request: put, auth: token
-          receive: OK
+      receive: their authored/published quizzes
+        i. View Quizzes
+            request get
+            receive ok
         ii. New Quiz
-          request: post, auth: token
-          receive: OK
+            request: get quiz by quiz_id
+            receive ok
+        iii. Save Quiz
+             request: put, auth: token
+             receive: OK
+        iv. Update/Edit Quiz
+             a. request get, auth: token
+                receive: ok
+             b. request post
+                update: success
+        v. Delete Quiz
+              request delete, auth; token
