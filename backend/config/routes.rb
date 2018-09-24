@@ -5,8 +5,6 @@ Rails.application.routes.draw do
     root 'quizzes#index'
     resources :users
 
-  
-    resources :users
     resources :quizzes do 
       resources :questions do
         resources :answers
