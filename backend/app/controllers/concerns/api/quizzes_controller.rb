@@ -12,10 +12,10 @@ class Api::QuizzesController < ApplicationController
     render :index, location: api_quizzes_url
   end
 
-  # def unpublished_quizzes
-  #   @quizzes = Quiz.where({published: false, user_id: params[:user_id]})
-  #   render :index, location: api_quizzes_url
-  # end
+  def unpublished_quizzes
+    @quizzes = Quiz.where({published: false, user_id: params[:user_id]})
+    render :index, location: api_quizzes_url
+  end
 
   def show
     @quiz = Quiz.find(params[:id])
@@ -58,7 +58,7 @@ class Api::QuizzesController < ApplicationController
 
   # def update
   #   if current_user.id != @user.id
-  #     render json: {error: "You umst be the administrator to update this quiz."}, status: :unauthorized
+  #     render json: {error: "You must be the administrator to update this quiz."}, status: :unauthorized
   #   else
   #     if @quiz.update(quiz_params)
   #       render :show, status: :updated, location: api_quiz_url(@quiz)
