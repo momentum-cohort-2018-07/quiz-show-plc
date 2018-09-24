@@ -2,14 +2,8 @@ Rails.application.routes.draw do
   namespace :api do
     resource :session, only: [:new, :create, :destroy]
   
-<<<<<<< HEAD
-  root 'quizzes#index'
-
-  resources :users
-=======
     root 'quizzes#index'
     resources :users
->>>>>>> bace5e25281869560c48f69f00e2060db1f90c2d
 
   
     resources :users
