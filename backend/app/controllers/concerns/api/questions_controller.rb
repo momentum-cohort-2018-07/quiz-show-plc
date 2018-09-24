@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Api::QuestionsController < ApplicationController
   before_action :set_question,  only: [:create, :show, :update, :destroy]
 
   def index
