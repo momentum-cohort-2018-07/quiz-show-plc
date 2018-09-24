@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class API::AnswersController < ApplicationController
 
   # before_action :set_question,  only: [:index, :create, :show, :update, :destroy]
   # before_action :set_answer, only: [:show, :update, :destroy]
