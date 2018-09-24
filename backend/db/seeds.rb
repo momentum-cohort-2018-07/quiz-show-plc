@@ -17,7 +17,8 @@ User.create!(
 User.create!(
   username: 'user',
   email: 'user@user.com',
-  password: 'user01'
+  password: 'user01', 
+  admin: false
 )
 
 CSV.foreach('db/quizzes.csv', headers: true) do |row|
