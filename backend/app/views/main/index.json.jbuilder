@@ -1,81 +1,81 @@
-GET       /session/new(.:format)
+# GET       /session/new(.:format)
 
-DELETE    /session(.:format)
-
-
-POST      /session(.:format)
+# DELETE    /session(.:format)
 
 
-GET       /
+# POST      /session(.:format)
 
 
-GET       /users(.:format)
+# GET       /
 
 
-POST      /users(.:format)
+# GET       /users(.:format)
 
 
-GET       /users/:id(.:format)
+# POST      /users(.:format)
 
 
-PATCH     /users/:id(.:format)
+# GET       /users/:id(.:format)
 
 
-PUT       /users/:id(.:format)
+# PATCH     /users/:id(.:format)
 
 
-DELETE    /users/:id(.:format)
+# PUT       /users/:id(.:format)
 
 
-GET       /quizzes/:quiz_id/questions/:question_id/answers(.:format)
+# DELETE    /users/:id(.:format)
 
 
-POST      /quizzes/:quiz_id/questions/:question_id/answers(.:format)
+# GET       /quizzes/:quiz_id/questions/:question_id/answers(.:format)
 
 
-GET       /quizzes/:quiz_id/questions/:question_id/answers/:id(.:format)
+# POST      /quizzes/:quiz_id/questions/:question_id/answers(.:format)
 
 
-PATCH     /quizzes/:quiz_id/questions/:question_id/answers/:id(.:format)
+# GET       /quizzes/:quiz_id/questions/:question_id/answers/:id(.:format)
 
 
-PUT       /quizzes/:quiz_id/questions/:question_id/answers/:id(.:format)
+# PATCH     /quizzes/:quiz_id/questions/:question_id/answers/:id(.:format)
 
 
-DELETE    /quizzes/:quiz_id/questions/:question_id/answers/:id(.:format)
+# PUT       /quizzes/:quiz_id/questions/:question_id/answers/:id(.:format)
 
 
-GET       /quizzes/:quiz_id/questions(.:format)
+# DELETE    /quizzes/:quiz_id/questions/:question_id/answers/:id(.:format)
 
 
-POST      /quizzes/:quiz_id/questions(.:format)
+# GET       /quizzes/:quiz_id/questions(.:format)
 
 
-GET       /quizzes/:quiz_id/questions/:id(.:format)
+# POST      /quizzes/:quiz_id/questions(.:format)
 
 
-PATCH     /quizzes/:quiz_id/questions/:id(.:format)
+# GET       /quizzes/:quiz_id/questions/:id(.:format)
 
 
-PUT       /quizzes/:quiz_id/questions/:id(.:format)
+# PATCH     /quizzes/:quiz_id/questions/:id(.:format)
 
 
-DELETE    /quizzes/:quiz_id/questions/:id(.:format)
+# PUT       /quizzes/:quiz_id/questions/:id(.:format)
 
 
-GET       /quizzes(.:format)
+# DELETE    /quizzes/:quiz_id/questions/:id(.:format)
 
 
-POST      /quizzes(.:format)
+# GET       /quizzes(.:format)
 
 
-GET       /quizzes/:id(.:format)
+# POST      /quizzes(.:format)
 
 
-PATCH     /quizzes/:id(.:format)
+# GET       /quizzes/:id(.:format)
 
 
-PUT       /quizzes/:id(.:format)
+# PATCH     /quizzes/:id(.:format)
 
 
-DELETE    /quizzes/:id(.:format)
+# PUT       /quizzes/:id(.:format)
+
+
+# DELETE    /quizzes/:id(.:format)
