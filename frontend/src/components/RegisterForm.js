@@ -8,7 +8,8 @@ class RegisterForm extends Component {
     this.state = {
       username: '',
       password: '',
-      confirmation: ''
+      confirmation: '',
+      email: ''
     }
   }
 
@@ -24,14 +25,21 @@ class RegisterForm extends Component {
     this.setState({ confirmation: value })
   }
 
+  updateEmail (value) {
+    this.setState({
+      email: value
+    })
+  }
+
   sendRegisterData (e) {
+    let email = this.state.email
     let username = this.state.username
     let password = this.state.password
     let confirmation = this.state.confirmation
     if (username !== '' && password !== '') {
       if (password === confirmation) {
-        console.log('username:', username, 'password:', password, 'password confirmation:', confirmation)
-        // data.register(username, password)
+        console.log('username:', username, 'password:', password, 'password confirmation:', confirmation, 'email: ', email)
+        data.register(username, password, email)
       } else {
         window.alert('Password and Confirm Password must match.')
       }
@@ -43,6 +51,12 @@ class RegisterForm extends Component {
   render () {
     return (
       <div className='RegisterForm'>
+        <label>Email
+          <input
+            className='signin_input'
+            type='text'
+            onChange={event => this.updateEmail(event.target.value)} />
+        </label>
         <label>Username
           <input
             className='signin_input'

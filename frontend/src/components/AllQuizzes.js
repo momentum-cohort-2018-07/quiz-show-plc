@@ -7,9 +7,9 @@ class AllQuizzes extends Component {
     super()
     this.state = {
       quizzes: [
-        { quizTitle: 'title 1' },
-        { quizTitle: 'title 2' },
-        { quizTitle: 'title 3' }
+        { title: 'title 1' },
+        { title: 'title 2' },
+        { title: 'title 3' }
       ]
     }
   }

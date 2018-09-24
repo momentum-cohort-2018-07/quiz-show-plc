@@ -12,22 +12,26 @@ const data = {
     return userToken
   },
   login: (username, password) => {
-    return request.post(`${apiDomain}/api/login`)
+    return request.post(`${apiDomain}/api/session`)
       .send({ username, password })
-      .then(res => res.body.token)
-      .then(token => {
-        data.setUserToken(token)
-        return { username, token }
-      })
+      .then(res => console.log(res.body))
+      // .then(token => {
+      //   data.setUserToken(token)
+      //   return { username, token }
+      // })
   },
-  register: (username, password) => {
-    return request.post(`${apiDomain}/users`)
-      .send({ username, password })
-      .then(res => res.body)
-      .then(user => {
-        data.setUserToken(user.token)
-        return user
+  register: (username, password, email) => {
+    return request.post(`${apiDomain}/api/users`)
+      .send({
+        'user': `${username}`,
+        'email': `${email}`,
+        'password': `${password}`
       })
+      .then(res => console.log(res.body))
+      // .then(user => {
+      //   data.setUserToken(user.token)
+      //   return user
+      // })
   },
   getQuizzes: () => {
     return request.get(`${apiDomain}/api/quizzes`)

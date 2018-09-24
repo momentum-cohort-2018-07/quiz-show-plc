@@ -24,7 +24,7 @@ class LoginForm extends Component {
     let password = this.state.password
     if (username !== '' && password !== '') {
       console.log('username: ', username, 'password: ', password)
-      // data.login(username, password)
+      data.login(username, password)
     } else {
       window.alert('Username and Password required')
     }
