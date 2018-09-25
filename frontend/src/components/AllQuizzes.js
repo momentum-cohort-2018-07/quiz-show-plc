@@ -6,11 +6,7 @@ class AllQuizzes extends Component {
   constructor () {
     super()
     this.state = {
-      quizzes: [
-        { title: 'title 1' },
-        { title: 'title 2' },
-        { title: 'title 3' }
-      ]
+      quizzes: []
     }
   }
 
@@ -31,7 +27,7 @@ class AllQuizzes extends Component {
       <ul className='AllQuizzes'>
         {quizzes.map((quiz, idx) =>
           <li key={idx}>
-            <h4>Quiz Title: {quiz.title}</h4>
+            <a onClick={() => this.props.setSelectedQuiz(quiz.id)}>Quiz Title: {quiz.title}</a>
           </li>
         )}
       </ul>
