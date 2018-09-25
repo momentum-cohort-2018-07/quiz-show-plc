@@ -1,4 +1,4 @@
-import request from 'superagent'
+import request from 'superagent/superagent.js'
 
 let userToken
 const apiDomain = 'https://blooming-savannah-88933.herokuapp.com'
@@ -35,6 +35,10 @@ const data = {
   },
   getQuizzes: () => {
     return request.get(`${apiDomain}/api/quizzes`)
+      .then(res => res.body)
+  },
+  getQuiz: (id) => {
+    return request.get(`${apiDomain}/api/quizzes/${id}`)
       .then(res => res.body)
   }
 }
