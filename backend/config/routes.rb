@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'scores/index'
+  get 'scores/show'
+  get 'scores/create'
+  get 'scores/destroy'
   namespace :api do
     resource :session, only: [:new, :create, :destroy]
   
