@@ -40,6 +40,7 @@ class RegisterForm extends Component {
       if (password === confirmation) {
         console.log('username:', username, 'password:', password, 'password confirmation:', confirmation, 'email: ', email)
         data.register(username, password, email)
+          .then(user => this.props.setCurrentUser(user))
       } else {
         window.alert('Password and Confirm Password must match.')
       }
@@ -76,6 +77,7 @@ class RegisterForm extends Component {
             onChange={event => this.updateConfirmation(event.target.value)} />
         </label>
         <button onClick={e => this.sendRegisterData(e)}>Register</button>
+        <p>Already have an account? <a onClick={() => this.props.setLogin()}>Login</a> </p>
       </div>
 
     )

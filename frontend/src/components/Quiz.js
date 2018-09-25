@@ -26,6 +26,7 @@ class Quiz extends Component {
   render () {
     return (
       <React.Fragment>
+        <h3>{this.state.title}</h3>
         <ol>
           {this.state.questions.map((question, idx) =>
             <li key={idx}>
