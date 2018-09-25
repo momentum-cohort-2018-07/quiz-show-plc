@@ -36,6 +36,10 @@ const data = {
   getQuizzes: () => {
     return request.get(`${apiDomain}/api/quizzes`)
       .then(res => res.body)
+  },
+  getQuiz: (id) => {
+    return request.get(`${apiDomain}/api/quizzes/${id}`)
+      .then(res => res.body)
   }
 }
 
