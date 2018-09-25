@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   skip_before_action :verify_authentication 
-  before_action :set_user, only: [:show, :edit, :create, :update, :destroy]
+  # before_action :set_user, only: [:show, :edit, :create, :update, :destroy]
 
   def index
     @users = User.all
@@ -61,9 +61,9 @@ class Api::UsersController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(params[:id]) 
-  end
+    # def set_user
+    #  @user = User.find(params[:id]) 
+    # end
 
     def user_params
       params.require(:user).permit(:username, :email, :password)
