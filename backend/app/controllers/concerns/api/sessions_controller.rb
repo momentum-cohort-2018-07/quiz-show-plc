@@ -8,7 +8,8 @@ class Api::SessionsController < ApplicationController
     user = User.find_by_username(params[:username])
 
     if user && user.authenticate(params[:password])
-      render json: { token: user.api_token }
+      render json: { token: user.api_token, user.username }
+
     else
       render json: { error: "Invalid" }, status: :unauthorized
     end
