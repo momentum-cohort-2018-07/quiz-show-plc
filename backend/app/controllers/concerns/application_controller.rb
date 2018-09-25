@@ -9,21 +9,17 @@ class ApplicationController < ActionController::API
   before_action :verify_authentication
 
   def verify_authentication
-    user = authenticate_with_http_token do |token, options|
-      User.find_by_api_token(token)
-    end
-
-    unless user
-      render json: { error: "ACCESS DENIED" }, status: :unauthorized
-    else
-      @current_user = user
+    unless current_user
+      render json: {error: "Unauthorized, access denied."}, status: :unauthorized
     end
   end
 
-
   protected
       def current_user
-        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+        @current_user ||= authenticate_with_http_token do |token, options|
+          User.find_by_token(token)
+        
+          #@current_user ||= User.find(session[:user_id]) if session[:user_id]
       end
   
       def logged_in?
@@ -33,7 +29,7 @@ class ApplicationController < ActionController::API
       def api_token_user
         @api_token_user ||= authenticate_with_http_token do |token, options|
           User.find_by_api_token(token)
-        end
       end
-  
+    end
+   end
 end
