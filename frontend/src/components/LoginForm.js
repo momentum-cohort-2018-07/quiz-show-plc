@@ -25,6 +25,7 @@ class LoginForm extends Component {
     if (username !== '' && password !== '') {
       console.log('username: ', username, 'password: ', password)
       data.login(username, password)
+        .then(user => this.props.setCurrentUser(user))
     } else {
       window.alert('Username and Password required')
     }
@@ -46,6 +47,7 @@ class LoginForm extends Component {
             onChange={event => this.updatePassword(event.target.value)} />
         </label>
         <button onClick={e => this.sendUserLoginData(e)}>Sign In</button>
+        <p>Don't have an account? <a onClick={() => this.props.setRegister()}>Register</a> </p>
       </div>
 
     )
