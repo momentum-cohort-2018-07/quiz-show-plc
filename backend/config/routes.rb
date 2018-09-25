@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
     root 'quizzes#index'
     resources :users
+    post 'login', to: 'login#create'
 
     resources :quizzes do 
       resources :questions do
