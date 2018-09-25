@@ -98,9 +98,9 @@ class Api::QuizzesController < ApplicationController
 
   # def destroy
   #   if current_user.id != @user.id
-  #     render json: {error: "Must be the owner to delete this quiz"}, status: :unauthorized
+  #     render json: {error: "You must be an administrator to delete this quiz."}, status: :unauthorized
   #   elsif @quiz.published
-  #     render json: {error: "Cannot delete a published quiz"}, status: :unauthorized
+  #     render json: {error: "UNAUTHORIZED: Unable to delete a published quiz"}, status: :unauthorized
   #   else
   #     @quiz.destroy
   #   end
