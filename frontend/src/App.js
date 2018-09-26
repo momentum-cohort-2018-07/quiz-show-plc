@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import purecss from 'purecss'
 import './App.css'
+
 // components
 import LoginForm from './components/LoginForm'
 import RegisterForm from './components/RegisterForm'
@@ -7,6 +9,7 @@ import AllQuizzes from './components/AllQuizzes'
 import Quiz from './components/Quiz'
 import data from './data'
 // end components
+
 class App extends Component {
   constructor () {
     super()
@@ -74,22 +77,24 @@ class App extends Component {
       <div className='App'>
         <header className='App-header'>
           <h1 className='App-title'>Quiz Show PLC</h1>
-          {this.state.currentUser
-            ? <div>
-              <p>Hi, {this.state.currentUser.username}!</p>
-              <button onClick={() => this.logout()}>Logout</button>
-            </div>
-            : <div>
-              {this.state.register
-                ? <RegisterForm setLogin={this.setLogin} setCurrentUser={this.setCurrentUser} />
-                : <LoginForm setRegister={this.setRegister} setCurrentUser={this.setCurrentUser} />}
-            </div>
-          }
+          {this.state.currentUser &&
+          <div><span className='welcome'>Hi, {this.state.currentUser.username}!</span>
+            <button className='pure-button' onClick={() => this.logout()}>Logout</button>
+          </div>}
         </header>
+        {this.state.currentUser
+          ? <div>
 
-        {this.state.selectedQuiz !== ''
-          ? <Quiz id={this.state.selectedQuiz} clear={this.clearSelectedQuiz} />
-          : <AllQuizzes setSelectedQuiz={this.setSelectedQuiz} />
+            {this.state.selectedQuiz !== ''
+              ? <Quiz id={this.state.selectedQuiz} clear={this.clearSelectedQuiz} />
+              : <AllQuizzes setSelectedQuiz={this.setSelectedQuiz} />
+            }
+          </div>
+          : <div>
+            {this.state.register
+              ? <RegisterForm setLogin={this.setLogin} setCurrentUser={this.setCurrentUser} />
+              : <LoginForm setRegister={this.setRegister} setCurrentUser={this.setCurrentUser} />}
+          </div>
         }
       </div>
     )

@@ -51,33 +51,40 @@ class RegisterForm extends Component {
 
   render () {
     return (
-      <div className='RegisterForm'>
-        <label>Email
+      <div className='pure-form pure-form-aligned'>
+        <div className='pure-control-group'>
+          <label>Email</label>
           <input
             className='signin_input'
             type='text'
             onChange={event => this.updateEmail(event.target.value)} />
-        </label>
-        <label>Username
+        </div>
+        <div className='pure-control-group'>
+          <label>Username</label>
           <input
             className='signin_input'
             type='text'
             onChange={event => this.updateUsername(event.target.value)} />
-        </label>
-        <label>Password
+        </div>
+        <div className='pure-control-group'>
+          <label>Password</label>
           <input
             className='signin_input'
             type='text'
             onChange={event => this.updatePassword(event.target.value)} />
-        </label>
-        <label>Confirm Password
+        </div>
+        <div className='pure-control-group'>
+          <label>Confirm Password</label>
           <input
             className='signin_input'
             type='text'
             onChange={event => this.updateConfirmation(event.target.value)} />
-        </label>
-        <button onClick={e => this.sendRegisterData(e)}>Register</button>
-        <p>Already have an account? <a onClick={() => this.props.setLogin()}>Login</a> </p>
+        </div>
+        <div className='pure-controls'>
+          <button className='pure-button pure-button-primary' onClick={e => this.sendRegisterData(e)}>Register</button>
+          <p>Already have an account? <a className='button-xsmall pure-button' onClick={() => this.props.setLogin()}>Login</a> </p>
+        </div>
+
       </div>
 
     )
