@@ -14,7 +14,7 @@ const data = {
   login: (username, password) => {
     return request.post(`${apiDomain}/api/session`)
       .send({ username, password })
-      .then(res => res.body)
+      .then(res => res.body.token)
       .then(token => {
         data.setUserToken(token)
         return { username, token }
@@ -41,12 +41,13 @@ const data = {
   getQuiz: (id) => {
     return request.get(`${apiDomain}/api/quizzes/${id}`)
       .then(res => res.body)
-  },
-  postAnswers: (selectedAnswers) => {
-    return request.post(`${apiDomain}/api/scores`)
-      .send(selectedAnswers)
-      .then(res => res.body)
   }
+  // postAnswers: (selectedAnswers) => {
+  //   return request.post(`${apiDomain}/api/scores`)
+  //     .set('Authorization', `Bearer ${userToken}`)
+  //     .send(selectedAnswers)
+  //     .then(res => res.body)
+  // }
 }
 
 export default data

@@ -20,7 +20,8 @@ class Quiz extends Component {
     data.getQuiz(this.props.id)
       .then(quiz => this.setState({
         title: quiz.data.title,
-        questions: quiz.data.questions
+        questions: quiz.data.questions,
+        score: ''
       }))
   }
   selectAnswer (e) {
@@ -37,35 +38,49 @@ class Quiz extends Component {
     }
     return formattedObject
   }
-
-  sendAnswers (selectedAnswers) {
-    let formattedAnswers = this.formatAnswers(selectedAnswers)
-    console.log(formattedAnswers)
-    data.postAnswers(formattedAnswers)
-      .then(result => console.log(result))
+  // pass selectedAnswers here and in the onClick feature as parameter once API is working
+  sendAnswers () {
+    // let formattedAnswers = this.formatAnswers(selectedAnswers)
+    // console.log(formattedAnswers)
+    // data.postAnswers(formattedAnswers)
+    //   .then(result => console.log(result))
+    let score = Math.floor(Math.random() * 100)
+    this.setState({
+      score: score
+    })
   }
 
   render () {
     return (
       <React.Fragment>
         <h3>{this.state.title}</h3>
-        <ol>
-          {this.state.questions.map((question, idx) =>
-            <li key={idx}>
-              {question.text}
+        {this.state.score !== ''
+          ? <div>
+            <p>You're score is {this.state.score}</p>
+            <button className='pure-button pure-button-primary' onClick={() => this.props.clear()}>Return to Quiz List</button>
+          </div>
+          : <div>
+            <ol>
+              {this.state.questions.map((question, idx) =>
+                <li key={idx}>
+                  {question.text}
 
-              {question.answers.map((answer, idx) =>
-                <div key={idx}>
-                  <input type='radio' id={answer.id}
-                    name={question.id} value={answer.id} onChange={(e) => this.selectAnswer(e)} />
-                  <label htmlFor={answer.id}>{answer.text}</label>
-                </div>
+                  {question.answers.map((answer, idx) =>
+                    <div key={idx}>
+                      <label className='pure-radio' htmlFor={answer.id}>
+                        <input type='radio' id={answer.id}
+                          name={question.id} value={answer.id} onChange={(e) => this.selectAnswer(e)} />
+                        {answer.text}</label>
+                    </div>
+                  )}
+
+                </li>
               )}
+            </ol>
+            <button className='pure-button pure-button-primary' onClick={() => this.sendAnswers()}>Submit</button>
+          </div>
+        }
 
-            </li>
-          )}
-        </ol>
-        <button onClick={() => this.sendAnswers(this.state.selectedAnswers)}>Clear</button>
       </React.Fragment>
 
     )

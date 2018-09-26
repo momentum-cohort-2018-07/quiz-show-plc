@@ -33,21 +33,26 @@ class LoginForm extends Component {
 
   render () {
     return (
-      <div className='LoginForm'>
-        <label>Username
+      <div className='pure-form pure-form-aligned'>
+        <div className='pure-control-group'>
+          <label htmlFor='username'>Username</label>
           <input
-            className='signin_input'
+            id='username'
             type='text'
             onChange={event => this.updateUsername(event.target.value)} />
-        </label>
-        <label>Password
+        </div>
+        <div className='pure-control-group'>
+          <label htmlFor='password'>Password</label>
           <input
-            className='signin_input'
-            type='text'
+            id='password'
+            type='password'
             onChange={event => this.updatePassword(event.target.value)} />
-        </label>
-        <button onClick={e => this.sendUserLoginData(e)}>Sign In</button>
-        <p>Don't have an account? <a onClick={() => this.props.setRegister()}>Register</a> </p>
+        </div>
+        <div className='pure-controls'>
+          <button className='pure-button pure-button-primary' onClick={e => this.sendUserLoginData(e)}>Sign In</button>
+          <p>Don't have an account? <a className='pure-button button-xsmall' onClick={() => this.props.setRegister()}>Register</a> </p>
+        </div>
+
       </div>
 
     )

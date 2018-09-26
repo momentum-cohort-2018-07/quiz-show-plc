@@ -24,13 +24,29 @@ class AllQuizzes extends Component {
   render () {
     const quizzes = this.state.quizzes
     return (
-      <ul className='AllQuizzes'>
-        {quizzes.map((quiz, idx) =>
-          <li key={idx}>
-            <a onClick={() => this.props.setSelectedQuiz(quiz.id)}>Quiz Title: {quiz.title}</a>
-          </li>
-        )}
-      </ul>
+      <React.Fragment>
+        <table className='pure-table pure-table-horizontal'>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Quiz Title</th>
+              <th />
+            </tr>
+          </thead>
+
+          <tbody>
+            {quizzes.map((quiz, idx) =>
+              <tr key={idx}>
+                <td>{quiz.id}</td>
+                <td>{quiz.title}</td>
+                <td><button className='pure-button' onClick={() => this.props.setSelectedQuiz(quiz.id)}>Start Quiz</button></td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+        <ul className='AllQuizzes' />
+
+      </React.Fragment>
 
     )
   }
