@@ -1,5 +1,5 @@
 json.result  do
-    json.user_id @result.user_id
-    json.quiz_id @result.quiz_id
-    json.score @result.score
+    json.user_id @score.user_id
+    json.quiz_id @score.quiz_id
+    json.score @score.score
   end
