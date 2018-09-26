@@ -39,15 +39,15 @@ class Quiz extends Component {
     return formattedObject
   }
   // pass selectedAnswers here and in the onClick feature as parameter once API is working
-  sendAnswers () {
-    // let formattedAnswers = this.formatAnswers(selectedAnswers)
-    // console.log(formattedAnswers)
-    // data.postAnswers(formattedAnswers)
-    //   .then(result => console.log(result))
-    let score = Math.floor(Math.random() * 100)
-    this.setState({
-      score: score
-    })
+  sendAnswers (selectedAnswers) {
+    let formattedAnswers = this.formatAnswers(selectedAnswers)
+    console.log(formattedAnswers)
+    data.postAnswers(formattedAnswers)
+      .then(result => console.log(result))
+    // let score = Math.floor(Math.random() * 100)
+    // this.setState({
+    //   score: score
+    // })
   }
 
   render () {
@@ -77,7 +77,7 @@ class Quiz extends Component {
                 </li>
               )}
             </ol>
-            <button className='pure-button pure-button-primary' onClick={() => this.sendAnswers()}>Submit</button>
+            <button className='pure-button pure-button-primary' onClick={() => this.sendAnswers(this.state.selectedAnswers)}>Submit</button>
           </div>
         }
 
