@@ -7,14 +7,12 @@ class Api::ScoresController < ApplicationController
   end
 
   def create 
-    result = params["result"]
-    @user_id = current_user[:id]
+    score = params["score"]
+    @user_id = get_user[:id]
     
     @score = 0
     size = 0
-    
-    # loop to extract questions and answers
-    answers_array = result["answers"]
+    answers_array = score["answers"]
     answers_array.each do |answer|
         answer_id = answer[:answer]
         
@@ -32,14 +30,14 @@ class Api::ScoresController < ApplicationController
     @score = (@score.to_f/size)*100
     @score = @score.floor
 
-    @result = Result.new(quiz_id: @quiz_id, score: @score, user_id: @user_id)
+    @result = Score.new(quiz_id: @quiz_id, score: @score, user_id: @user_id)
     @result.score = @score
     if @result.save
-        render "api/results/show.json", status: :created
+        render "api/scores/show.json", status: :created
     else
         render json: @result.errors, status: :unprocessable_entity
     end 
-end
+  end
 
   def destroy
   end
