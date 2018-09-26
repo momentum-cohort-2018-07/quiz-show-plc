@@ -38,16 +38,14 @@ class Quiz extends Component {
     }
     return formattedObject
   }
-  // pass selectedAnswers here and in the onClick feature as parameter once API is working
   sendAnswers (selectedAnswers) {
     let formattedAnswers = this.formatAnswers(selectedAnswers)
     console.log(formattedAnswers)
     data.postAnswers(formattedAnswers)
-      .then(result => console.log(result))
-    // let score = Math.floor(Math.random() * 100)
-    // this.setState({
-    //   score: score
-    // })
+      .then(result => result.result.result)
+      .then(result => this.setState({
+        score: result
+      }))
   }
 
   render () {

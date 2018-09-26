@@ -70,14 +70,14 @@ class RegisterForm extends Component {
           <label>Password</label>
           <input
             className='signin_input'
-            type='text'
+            type='password'
             onChange={event => this.updatePassword(event.target.value)} />
         </div>
         <div className='pure-control-group'>
           <label>Confirm Password</label>
           <input
             className='signin_input'
-            type='text'
+            type='password'
             onChange={event => this.updateConfirmation(event.target.value)} />
         </div>
         <div className='pure-controls'>
