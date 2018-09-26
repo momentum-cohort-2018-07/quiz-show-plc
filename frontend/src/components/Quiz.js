@@ -32,7 +32,7 @@ class Quiz extends Component {
 
   formatAnswers (array) {
     const formattedObject = {
-      result: {
+      score: {
         answers: array }
     }
     return formattedObject
