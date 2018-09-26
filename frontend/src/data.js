@@ -41,13 +41,13 @@ const data = {
   getQuiz: (id) => {
     return request.get(`${apiDomain}/api/quizzes/${id}`)
       .then(res => res.body)
+  },
+  postAnswers: (selectedAnswers) => {
+    return request.post(`${apiDomain}/api/scores`)
+      .set('Authorization', `Bearer ${userToken}`)
+      .send(selectedAnswers)
+      .then(res => res.body)
   }
-  // postAnswers: (selectedAnswers) => {
-  //   return request.post(`${apiDomain}/api/scores`)
-  //     .set('Authorization', `Bearer ${userToken}`)
-  //     .send(selectedAnswers)
-  //     .then(res => res.body)
-  // }
 }
 
 export default data
