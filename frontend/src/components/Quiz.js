@@ -25,13 +25,13 @@ class Quiz extends Component {
       }))
   }
   selectAnswer (e) {
-    const selectedAnswersCopy = this.state.selectedAnswers.slice()
     this.setState({
-      selectedAnswers: selectedAnswersCopy.concat({ answer: e.target.value })
+      selectedAnswers: Object.assign({}, this.state.selectedAnswers, { [e.target.name]: e.target.value })
     })
   }
 
-  formatAnswers (array) {
+  formatAnswers (answerIDs) {
+    const array = answerIDs.map(answerID => { return { answer: answerID } })
     const formattedObject = {
       score: {
         answers: array }
@@ -39,7 +39,8 @@ class Quiz extends Component {
     return formattedObject
   }
   sendAnswers (selectedAnswers) {
-    let formattedAnswers = this.formatAnswers(selectedAnswers)
+    let answerId = Object.values(selectedAnswers)
+    let formattedAnswers = this.formatAnswers(answerId)
     console.log(formattedAnswers)
     data.postAnswers(formattedAnswers)
       .then(result => result.result.result)
