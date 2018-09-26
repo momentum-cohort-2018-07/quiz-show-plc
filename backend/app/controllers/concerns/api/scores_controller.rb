@@ -7,7 +7,7 @@ class Api::ScoresController < ApplicationController
   end
 
   def create 
-    result=params["result"]
+    result = params["result"]
     @user_id = current_user[:id]
     
     @score = 0
@@ -24,8 +24,8 @@ class Api::ScoresController < ApplicationController
             end
     end
 
-    @question_id= @answer.question_id
-    @question=Question.find(@question_id)
+    @question_id = @answer.question_id
+    @question = Question.find(@question_id)
     @quiz_id = @question.quiz_id
 
     size = answers_array.length
