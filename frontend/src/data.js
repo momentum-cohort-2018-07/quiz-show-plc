@@ -41,6 +41,11 @@ const data = {
   getQuiz: (id) => {
     return request.get(`${apiDomain}/api/quizzes/${id}`)
       .then(res => res.body)
+  },
+  postAnswers: (selectedAnswers) => {
+    return request.post(`${apiDomain}/api/scores`)
+      .send(selectedAnswers)
+      .then(res => res.body)
   }
 }
 

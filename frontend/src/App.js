@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
+
 // components
 import LoginForm from './components/LoginForm'
 import RegisterForm from './components/RegisterForm'
@@ -7,6 +8,7 @@ import AllQuizzes from './components/AllQuizzes'
 import Quiz from './components/Quiz'
 import data from './data'
 // end components
+
 class App extends Component {
   constructor () {
     super()
