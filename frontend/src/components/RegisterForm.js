@@ -51,7 +51,7 @@ class RegisterForm extends Component {
 
   render () {
     return (
-      <div className='pure-form pure-form-aligned'>
+      <div className='pure-form pure-form-aligned form'>
         <div className='pure-control-group'>
           <label>Email</label>
           <input
@@ -82,7 +82,7 @@ class RegisterForm extends Component {
         </div>
         <div className='pure-controls'>
           <button className='pure-button pure-button-primary' onClick={e => this.sendRegisterData(e)}>Register</button>
-          <p>Already have an account? <a className='button-xsmall pure-button' onClick={() => this.props.setLogin()}>Login</a> </p>
+          <p>Already have an account? <a className='switch' onClick={() => this.props.setLogin()}>Login</a> </p>
         </div>
 
       </div>

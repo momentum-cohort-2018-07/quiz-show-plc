@@ -39,14 +39,18 @@ class Quiz extends Component {
     return formattedObject
   }
   sendAnswers (selectedAnswers) {
-    let answerId = Object.values(selectedAnswers)
-    let formattedAnswers = this.formatAnswers(answerId)
-    console.log(formattedAnswers)
-    data.postAnswers(formattedAnswers)
-      .then(result => result.result.result)
-      .then(result => this.setState({
-        score: result
-      }))
+    if (Object.values(selectedAnswers).length >= this.state.questions.length) {
+      let answerId = Object.values(selectedAnswers)
+      let formattedAnswers = this.formatAnswers(answerId)
+      console.log(formattedAnswers)
+      data.postAnswers(formattedAnswers)
+        .then(result => result.result.result)
+        .then(result => this.setState({
+          score: result
+        }))
+    } else {
+      window.alert('Please complete all questions before submission')
+    }
   }
 
   render () {
@@ -55,19 +59,19 @@ class Quiz extends Component {
         <h3>{this.state.title}</h3>
         {this.state.score !== ''
           ? <div>
-            <p>You're score is {this.state.score}</p>
+            <p>Your score is {this.state.score}</p>
             <button className='pure-button pure-button-primary' onClick={() => this.props.clear()}>Return to Quiz List</button>
           </div>
           : <div>
             <ol>
               {this.state.questions.map((question, idx) =>
-                <li key={idx}>
+                <li className='question' key={idx}>
                   {question.text}
 
                   {question.answers.map((answer, idx) =>
                     <div key={idx}>
-                      <label className='pure-radio' htmlFor={answer.id}>
-                        <input type='radio' id={answer.id}
+                      <label className='pure-radio choice-text' htmlFor={answer.id}>
+                        <input className='choice' type='radio' id={answer.id}
                           name={question.id} value={answer.id} onChange={(e) => this.selectAnswer(e)} />
                         {answer.text}</label>
                     </div>
