@@ -1,0 +1,40 @@
+
+.App {
+  background-color: #EFF2C0;
+  height: 130vh;
+  padding: 2vh;
+  color: #080F0F;
+}
+
+.App-title {
+  margin: 0;
+  color: #555B6E;
+}
+
+.logged-in {
+  padding: 2vh 0vh 2vh 0vh;
+}
+
+.welcome {
+  padding: 1vh;
+}
+
+.form {
+  margin: 2vh 0vh;
+}
+
+.switch {
+  color: #89B0AE;
+}
+
+.question {
+  margin: 2vh 0vh;
+}
+
+.choice-text {
+  margin: 1vh;
+}
+
+.choice {
+  margin: 1vh;
+}

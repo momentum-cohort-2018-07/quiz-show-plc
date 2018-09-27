@@ -78,7 +78,7 @@ class App extends Component {
         <header className='App-header'>
           <h1 className='App-title'>Quiz Show PLC</h1>
           {this.state.currentUser &&
-          <div><span className='welcome'>Hi, {this.state.currentUser.username}!</span>
+          <div className='logged-in'><span className='welcome'>Hi, {this.state.currentUser.username}!</span>
             <button className='pure-button' onClick={() => this.logout()}>Logout</button>
           </div>}
         </header>

@@ -33,7 +33,7 @@ class LoginForm extends Component {
 
   render () {
     return (
-      <div className='pure-form pure-form-aligned'>
+      <div className='pure-form pure-form-aligned form'>
         <div className='pure-control-group'>
           <label htmlFor='username'>Username</label>
           <input
@@ -50,7 +50,7 @@ class LoginForm extends Component {
         </div>
         <div className='pure-controls'>
           <button className='pure-button pure-button-primary' onClick={e => this.sendUserLoginData(e)}>Sign In</button>
-          <p>Don't have an account? <a className='pure-button button-xsmall' onClick={() => this.props.setRegister()}>Register</a> </p>
+          <p>Don't have an account? <a className='switch' onClick={() => this.props.setRegister()}>Register</a> </p>
         </div>
 
       </div>
